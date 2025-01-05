@@ -22,6 +22,19 @@ export OPENAI_API_KEY="sk_..."
 
 (or in `.env.example` and rename it to `.env`).
 
+> [!TIP]
+> If you are using `Azure OpenAI Service`, you might need the additional steps to set up your environments. Please goto to the `openai.ts` under `app` folder, and modify your code like below.
+
+```js
+import { AzureOpenAI } from "openai";
+export const openai = new AzureOpenAI({
+  endpoint: process.env.OPENAI_ENDPOINT,
+  apiKey: process.env.OPENAI_API_KEY,
+  deployment: "gpt-4o",
+  apiVersion: "2024-05-01-preview",
+});
+```
+
 ### 3. Install dependencies
 
 ```shell
